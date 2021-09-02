@@ -1,0 +1,9 @@
+node_modules
+dist
+dist.zip
+esm
+coverage
+*.log
+.DS_Store
+.cache
+.temp
