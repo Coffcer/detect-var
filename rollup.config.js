@@ -5,7 +5,7 @@ export default {
   output: {
     dir: 'dist',
     format: 'umd',
-    name: 'detectVar'
+    name: 'waitFor'
   },
   plugins: [
     typescript()

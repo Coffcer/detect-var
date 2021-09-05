@@ -1,20 +1,35 @@
-# detect-var
+# wait-for-any
 
-Wait for any async injected variables. such as ethereum provider `window.ethereum`
+Wait until the condition is met. Used to detect dynamically injected variables, such as `window.ethereum`
 
-## Usage
+## Install
 
+```
+npm install wait-for-any
+```
+
+## Example
+
+Wait until ethereum injection
 ``` js
-import detectVar from 'detect-var'
-const ethereum = await detectVar(() => window.ethereum)
+import waitFor from 'wait-for-any'
+const ethereum = await waitFor(() => window.ethereum)
 console.log(ethereum === window.ethereum) // true
+```
+
+Browser
+``` html
+<script src="dist/index.js">
+<script>
+  window.waitFor()
+</script>
 ```
 
 ## Parameter
 
-`detectVar(fn, [options])`
+`waitFor(condition, [options])`
 
-* fn: `function` return the object to be detected
-* options
-  * timeout: `number` maximum detection time, default 5000 ms
-  * step: `number` interval between each detect, default 500 ms
+* `condition`: function - if the return value is not null, the condition is true
+* `options`
+  * `timeout`: number - maximum detection time, default 5000 ms
+  * `step`: number - interval between each detect, default 500 ms
