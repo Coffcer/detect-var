@@ -7,7 +7,7 @@
  */
 export default function <T>(
   condition: () => T,
-  options: { timeout: number; step: number }
+  options?: { timeout?: number; step?: number }
 ): Promise<T> {
   let checkTime = 0;
   options = Object.assign(
@@ -15,7 +15,7 @@ export default function <T>(
       timeout: 5000,
       step: 500,
     },
-    options
+    options || {}
   );
 
   return new Promise((resolve, reject) => {
@@ -26,7 +26,7 @@ export default function <T>(
         return;
       }
       if (checkTime >= options.timeout) {
-        reject(new Error("timeout"));
+        reject(new Error("[wait-for-any]: timeout"));
         return;
       }
       checkTime += options.step;

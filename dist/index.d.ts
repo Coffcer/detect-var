@@ -5,7 +5,7 @@
  * @param options.timeout Maximum detection time, default 5000 ms
  * @param options.step Interval between each detect, default 500 ms
  */
-export default function <T>(condition: () => T, options: {
-    timeout: number;
-    step: number;
+export default function <T>(condition: () => T, options?: {
+    timeout?: number;
+    step?: number;
 }): Promise<T>;
